@@ -40,7 +40,7 @@ export class Fullstory {
   }
 
   login(userId: any, data: any) {
-    if (!isPlatformBrowser(this.platformId)) {
+    if (!this.config.fsEnabled || !isPlatformBrowser(this.platformId)) {
       return;
     }
 
@@ -49,7 +49,7 @@ export class Fullstory {
   }
 
   logout() {
-    if (!isPlatformBrowser(this.platformId)) {
+    if (!this.config.fsEnabled || !isPlatformBrowser(this.platformId)) {
       return;
     }
     // This is an example script - don't forget to change it!
@@ -57,6 +57,7 @@ export class Fullstory {
   }
 
   loadFullstory(config: FullstoryConfig): void {
+    if (!config.fsEnabled) { return }
     const args = arguments;
     const win = (window as any);
 

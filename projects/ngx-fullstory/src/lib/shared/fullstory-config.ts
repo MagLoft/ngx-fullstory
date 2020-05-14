@@ -3,4 +3,5 @@ export class FullstoryConfig {
   fsDebug?: boolean;
   fsHost?: string;
   fsNameSpace?: string;
+  fsEnabled?: boolean;
 }
